@@ -4,11 +4,15 @@
 % Link dos templates.
 % https://www.springer.com/gp/authors-editors/conference-proceedings/conference-proceedings-guidelines
 % ----------------------------------------------------------
+% \documentclass{package/svproc}
 \documentclass{package/svproc}
+\usepackage{makeidx}  % allows for indexgeneration
 \usepackage{url} % requerido para URLs
 \usepackage{graphicx} % requerido para insert de imagens
 \usepackage{multicol,footmisc} % multicolunas'
+
 \def\UrlFont{\rmfamily} % Definição de fonte para URL
+\makeindex
 
 % ----------------------------------------------------------
 % Inicio do Artigo ChatGPT e Design Patterns
@@ -67,63 +71,60 @@ There will be two blank lines before and after the Abstract. \dots
 % the abstract section using the \keywords{...} command.
 
 \keywords{ChatGPT, Design Patterns, Artificial Intelligence}
+
 \end{abstract}
 
 % ----------------------------------------------------------
 % Introdução
 % ----------------------------------------------------------
 \section{Introduction}
-\label{section:introduction}
 \input{tex/1introduction}
 % ----------------------------------------------------------
 % Background
 % ----------------------------------------------------------
 \section{Background}
-\label{section:background}
 \input{tex/2background}
 % ----------------------------------------------------------
 % Implementando Padroes de projetos com uma ferramenta
 % dando suporte;
 % ----------------------------------------------------------
 \section{AI-Assisted Tools for Implementing Design Patterns}
-\label{section:ai-designs-patterns}
 \input{tex/3ai-tools-design-patterns}
 % ----------------------------------------------------------
 % Problemática da abordagem para ensinar padrões de projeto
 % ----------------------------------------------------------
 \section{Teaching Design Patterns}
-\label{section:teaching-design--patterns}
 \input{tex/4teaching-design-patterns}
 % ----------------------------------------------------------
 % Estudo sobre padrões de projetos
 % ----------------------------------------------------------
 \section{Study Design}
-\label{section:study-design}
 \input{tex/5study-design}
 % ----------------------------------------------------------
 % Resultados
 % ----------------------------------------------------------
 \section{Results}
-\label{section:results}
 \input{tex/6results}
 % ----------------------------------------------------------
 % Discussão
 % ----------------------------------------------------------
 \section{Discussion}
-\label{section:discussion}
 \input{tex/7discussion}
 % ----------------------------------------------------------
 % Conclusão
 % ----------------------------------------------------------
 \section{Conclusion}
-\label{section:conclusion}
 \input{tex/8conclusion}
-% % ----------------------------------------------------------
-% % Referências bibliográficas
-% % ----------------------------------------------------------
-\begin{thebibliography}{6}
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\begin{thebibliography}{}
 \input{tex/9references}
 \end{thebibliography}
 
-\end{document}
+\clearpage
+%\addtocmark[2]{Author Index} % additional numbered TOC entry
+\renewcommand{\indexname}{Author Index}
+\printautindex
 
+\end{document}

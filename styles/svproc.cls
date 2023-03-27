@@ -1172,7 +1172,7 @@ to0pt{\kern0.55\wd0\vrule height0.45\ht0\hss}\box0}}}}
 \spn@wtheorem{problem}{Problem}{\itshape}{\rmfamily}
 \spn@wtheorem{property}{Property}{\itshape}{\rmfamily}
 \spn@wtheorem{proposition}{Proposition}{\bfseries}{\itshape}
-\spn@wtheorem{question}{Question}{\itshape}{\rmfamily}
+\spn@wtheorem{question}{RQ}{\itshape}{\rmfamily}
 \spn@wtheorem{solution}{Solution}{\itshape}{\rmfamily}
 \spn@wtheorem{remark}{Remark}{\itshape}{\rmfamily}
 
