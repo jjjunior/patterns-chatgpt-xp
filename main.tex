@@ -1,0 +1,129 @@
+% ---------------------------------------------------------
+% Import de classe do template para autores da XP2003
+% https://www.agilealliance.org/xp2023
+% Link dos templates.
+% https://www.springer.com/gp/authors-editors/conference-proceedings/conference-proceedings-guidelines
+% ----------------------------------------------------------
+\documentclass{package/svproc}
+\usepackage{url} % requerido para URLs
+\usepackage{graphicx} % requerido para insert de imagens
+\usepackage{multicol,footmisc} % multicolunas'
+\def\UrlFont{\rmfamily} % Definição de fonte para URL
+
+% ----------------------------------------------------------
+% Inicio do Artigo ChatGPT e Design Patterns
+% ----------------------------------------------------------
+\begin{document}
+\mainmatter
+%
+\title{Can ChatGPT suggest design patterns?\\A study based on the analysis of exam questions.}
+
+%
+\titlerunning{ChatGPT and Design Patterns}  % abreviação
+%                                    
+%
+\author{Eduardo Guerra\inst{1} \and João Maranhão\inst{2}}
+% and Felipe \inst{3}}
+%
+\authorrunning{Eduardo Guerra et al.} % abbreviated author list (for running head)
+%
+%%%% list of authors for the TOC (use if author list has to be modified)
+\tocauthor{Eduardo Guerra and João Maranhão}
+% and Elisa Bertino}
+%
+\institute{Free University of Bozen-Bolzano,\\
+\email{guerraem@gmail.com},
+% \texttt{http://users/\homedir iekeland/web/welcome.html}
+\and
+IPT – Instituto de Pesquisas Tecnológicas do Estado de São Paulo,\\
+\email{jjjunior@gmail.com}
+% \texttt{https://www.ipt.br},
+% Laboratoire d'Analyse Num\'{e}rique, B\^{a}timent 425,\\
+% F-91405 Orsay Cedex, France
+% \and
+% Instituto de Pesquisas Tecnologica, São Paulo, BR,\\
+% \texttt{https://www.ipt.br},
+% Laboratoire d'Analyse Num\'{e}rique, B\^{a}timent 425,\\
+% F-91405 Orsay Cedex, France
+}
+\maketitle  
+
+% ----------------------------------------------------------
+% Verificar se é para incluir no Cabeçalho o mes e ano
+% pois no template não tem esta informação.
+% ----------------------------------------------------------
+% \begin{center}
+% \textbf{March 2023}
+% \end{center}
+
+
+\begin{abstract}
+
+The Abstract should summarize the paper
+using at least 70 and 150 words. It will be set in 9-point
+font size and be inset 1.0 cm from the right and left margins.
+There will be two blank lines before and after the Abstract. \dots
+% We would like to encourage you to list your keywords within
+% the abstract section using the \keywords{...} command.
+
+\keywords{ChatGPT, Design Patterns, Artificial Intelligence}
+\end{abstract}
+
+% ----------------------------------------------------------
+% Introdução
+% ----------------------------------------------------------
+\section{Introduction}
+\label{section:introduction}
+\input{tex/1introduction}
+% ----------------------------------------------------------
+% Background
+% ----------------------------------------------------------
+\section{Background}
+\label{section:background}
+\input{tex/2background}
+% ----------------------------------------------------------
+% Implementando Padroes de projetos com uma ferramenta
+% dando suporte;
+% ----------------------------------------------------------
+\section{AI-Assisted Tools for Implementing Design Patterns}
+\label{section:ai-designs-patterns}
+\input{tex/3ai-tools-design-patterns}
+% ----------------------------------------------------------
+% Problemática da abordagem para ensinar padrões de projeto
+% ----------------------------------------------------------
+\section{Teaching Design Patterns}
+\label{section:teaching-design--patterns}
+\input{tex/4teaching-design-patterns}
+% ----------------------------------------------------------
+% Estudo sobre padrões de projetos
+% ----------------------------------------------------------
+\section{Study Design}
+\label{section:study-design}
+\input{tex/5study-design}
+% ----------------------------------------------------------
+% Resultados
+% ----------------------------------------------------------
+\section{Results}
+\label{section:results}
+\input{tex/6results}
+% ----------------------------------------------------------
+% Discussão
+% ----------------------------------------------------------
+\section{Discussion}
+\label{section:discussion}
+\input{tex/7discussion}
+% ----------------------------------------------------------
+% Conclusão
+% ----------------------------------------------------------
+\section{Conclusion}
+\label{section:conclusion}
+\input{tex/8conclusion}
+% % ----------------------------------------------------------
+% % Referências bibliográficas
+% % ----------------------------------------------------------
+\begin{thebibliography}{6}
+\input{tex/9references}
+\end{thebibliography}
+
+\end{document}
+
