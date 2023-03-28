@@ -1,130 +1,115 @@
-% ---------------------------------------------------------
-% Import de classe do template para autores da XP2003
-% https://www.agilealliance.org/xp2023
-% Link dos templates.
-% https://www.springer.com/gp/authors-editors/conference-proceedings/conference-proceedings-guidelines
 % ----------------------------------------------------------
-% \documentclass{package/svproc}
-\documentclass{package/svproc}
-\usepackage{makeidx}  % allows for indexgeneration
-\usepackage{url} % requerido para URLs
-\usepackage{graphicx} % requerido para insert de imagens
-\usepackage{multicol,footmisc} % multicolunas'
+% Style for submissions to Nature Portfolio journals
+% ----------------------------------------------------------
+\documentclass[pdflatex,sn-nature]{sn-jnl}
+% ----------------------------------------------------------
+% additional latex packages 
+% ----------------------------------------------------------
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{manyfoot}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{listings}
 
-\def\UrlFont{\rmfamily} % Definição de fonte para URL
-\makeindex
+\raggedbottom
+%\unnumbered% uncomment this for unnumbered level heads
 
 % ----------------------------------------------------------
 % Inicio do Artigo ChatGPT e Design Patterns
 % ----------------------------------------------------------
 \begin{document}
-\mainmatter
-%
-\title{Can ChatGPT suggest design patterns?\\A study based on the analysis of exam questions.}
+\title{Can ChatGPT suggest design patterns? A study based on the analysis of exam questions.}
 
-%
-\titlerunning{ChatGPT and Design Patterns}  % abreviação
-%                                    
-%
-\author{Eduardo Guerra\inst{1} \and João Maranhão\inst{2}}
-% and Felipe \inst{3}}
-%
-\authorrunning{Eduardo Guerra et al.} % abbreviated author list (for running head)
-%
-%%%% list of authors for the TOC (use if author list has to be modified)
-\tocauthor{Eduardo Guerra and João Maranhão}
-% and Elisa Bertino}
-%
-\institute{Free University of Bozen-Bolzano,\\
-\email{guerraem@gmail.com},
-% \texttt{http://users/\homedir iekeland/web/welcome.html}
-\and
-IPT – Instituto de Pesquisas Tecnológicas do Estado de São Paulo,\\
-\email{jjjunior@gmail.com}
-% \texttt{https://www.ipt.br},
-% Laboratoire d'Analyse Num\'{e}rique, B\^{a}timent 425,\\
-% F-91405 Orsay Cedex, France
-% \and
-% Instituto de Pesquisas Tecnologica, São Paulo, BR,\\
-% \texttt{https://www.ipt.br},
-% Laboratoire d'Analyse Num\'{e}rique, B\^{a}timent 425,\\
-% F-91405 Orsay Cedex, France
-}
-\maketitle  
+%%=============================================================%%
+%% Prefix	-> \pfx{Dr}
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% NatureName	-> \tanm{Poet Laureate} -> Title after name
+%% Degrees	-> \dgr{MSc, PhD}
+%% \author*[1,2]{\pfx{Dr} \fnm{Joergen W.} \spfx{van der} \sur{Ploeg} \sfx{IV} \tanm{Poet Laureate} 
+%%                 \dgr{MSc, PhD}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author[1]{\pfx{Dr} \fnm{Eduardo} \spfx{Martins} \sur{Guerra}}\email{guerraem@gmail.com}
+
+\author[2]{\fnm{Filipe}  \sur{Correia}} \email{filipe.correia@fe.up.pt}
+
+\author[3]{\fnm{João} \spfx{José} \sur{Maranhão}  \sfx{Junior}}\email{jjjunior@gmail.com}
+
+
+\affil[1]{\orgdiv{Computer Science}, \orgname{Free University of Bozen-Bolzano}, \orgaddress{\street{Piazza Università, 1}, \city{Bolzano}, \postcode{39100}, \state{BZ}, \country{Italy}}}
+
+\affil[2]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{10587}, \state{State}, \country{Country}}}
+
+\affil[3]{\orgdiv{Computação Aplicada}, \orgname{IPT - Instituto de Pesquisas Tecnologicias}, \orgaddress{\street{Av. Prof. Almeida Prado, 532}, \city{São Paulo}, \postcode{05508-901}, \state{SP}, \country{Brazil}}}
 
 % ----------------------------------------------------------
-% Verificar se é para incluir no Cabeçalho o mes e ano
-% pois no template não tem esta informação.
+% abstract
 % ----------------------------------------------------------
-% \begin{center}
-% \textbf{March 2023}
-% \end{center}
-
-
-\begin{abstract}
-
-The Abstract should summarize the paper
-using at least 70 and 150 words. It will be set in 9-point
-font size and be inset 1.0 cm from the right and left margins.
-There will be two blank lines before and after the Abstract. \dots
-% We would like to encourage you to list your keywords within
-% the abstract section using the \keywords{...} command.
+\abstract{The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. Authors are advised to check the author instructions for the journal they are submitting to for word limits and if structural elements like subheadings, citations, or equations are permitted.}
 
 \keywords{ChatGPT, Design Patterns, Artificial Intelligence}
 
-\end{abstract}
+\maketitle
 
-% ----------------------------------------------------------
-% Introdução
-% ----------------------------------------------------------
-\section{Introduction}
-\input{tex/1introduction}
-% ----------------------------------------------------------
-% Background
-% ----------------------------------------------------------
-\section{Background}
-\input{tex/2background}
-% ----------------------------------------------------------
-% Implementando Padroes de projetos com uma ferramenta
-% dando suporte;
-% ----------------------------------------------------------
-\section{AI-Assisted Tools for Implementing Design Patterns}
-\input{tex/3ai-tools-design-patterns}
-% ----------------------------------------------------------
-% Problemática da abordagem para ensinar padrões de projeto
-% ----------------------------------------------------------
-\section{Teaching Design Patterns}
-\input{tex/4teaching-design-patterns}
-% ----------------------------------------------------------
-% Estudo sobre padrões de projetos
-% ----------------------------------------------------------
-\section{Study Design}
-\input{tex/5study-design}
-% ----------------------------------------------------------
-% Resultados
-% ----------------------------------------------------------
-\section{Results}
-\input{tex/6results}
-% ----------------------------------------------------------
-% Discussão
-% ----------------------------------------------------------
-\section{Discussion}
-\input{tex/7discussion}
-% ----------------------------------------------------------
-% Conclusão
-% ----------------------------------------------------------
-\section{Conclusion}
-\input{tex/8conclusion}
-% ----------------------------------------------------------
-% Referências bibliográficas
-% ----------------------------------------------------------
-\begin{thebibliography}{}
-\input{tex/9references}
-\end{thebibliography}
+\section{Introduction}\label{sec1}
 
-\clearpage
-%\addtocmark[2]{Author Index} % additional numbered TOC entry
-\renewcommand{\indexname}{Author Index}
-\printautindex
+The Introduction section, of referenced text \cite{bib1} expands on the background of the work (some overlap with the Abstract is acceptable). The introduction should not include subheadings.
+
+Springer Nature does not impose a strict layout as standard however authors are advised to check the individual requirements for the journal they are planning to submit to as there may be journal-level preferences. When preparing your text please also be aware that some stylistic choices are not supported in full text XML (publication version), including coloured font. These will not be replicated in the typeset article if it is accepted. 
+
+\section{Background}\label{sec2}
+
+Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text.
+
+\section{AI-Assisted Tools for Implementing Design Patterns}\label{sec3}
+
+\subsection{This is an example for second level head---subsection head}\label{subsec3}
+
+\subsubsection{This is an example for third level head---subsubsection head}\label{subsubsec3}
+
+Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. Sample body text. 
+
+\section{Teaching Design Patterns}\label{sec4}
+
+As per the \LaTeX\ standards you need to use eps images for \LaTeX\ compilation and \verb+pdf/jpg/png+ images for \verb+PDFLaTeX+ compilation. This is one of the major difference between \LaTeX\ and \verb+PDFLaTeX+. Each image should be from a single input .eps/vector image file. Avoid using subfigures. The command for inserting images for \LaTeX\ and \verb+PDFLaTeX+ can be generalized. The package used to insert images in \verb+LaTeX/PDFLaTeX+ is the graphicx package. Figures can be inserted via the normal figure environment as shown in the below example:
+
+\section{Study Design}\label{sec5}
+
+Packages \verb+algorithm+, \verb+algorithmicx+ and \verb+algpseudocode+ are used for setting algorithms in \LaTeX\ using the format:
+
+\section{Results}\label{sec6}
+
+Standard \LaTeX\ permits only numerical citations. To support both numerical and author-year citations this template uses \verb+natbib+ \LaTeX\ package. For style guidance please refer to the template user manual.
+
+All cited bib entries are printed at the end of this article: \cite{bib3}, \cite{bib4}, \cite{bib5}, \cite{bib6}, \cite{bib7}, \cite{bib8}, \cite{bib9}, \cite{bib10}, \cite{bib11}, \cite{bib12} and \cite{bib13}.
+
+\section{Discussion}\label{sec7}
+
+\section{Conclusion}\label{sec8}
+
+Topical subheadings are allowed. Authors must ensure that their Methods section includes adequate experimental and characterization data necessary for others in the field to reproduce their work. Authors are encouraged to include RIIDs where appropriate. 
+
+\textbf{Ethical approval declarations} (only required where applicable) Any article reporting experiment/s carried out on (i)~live vertebrate (or higher invertebrates), (ii)~humans or (iii)~human samples must include an unambiguous statement within the methods section that meets the following requirements: 
+
+\begin{enumerate}[1.]
+\item Approval: a statement which confirms that all experimental protocols were approved by a named institutional and/or licensing committee. Please identify the approving body in the methods section
+
+\item Accordance: a statement explicitly saying that the methods were carried out in accordance with the relevant guidelines and regulations
+
+\item Informed consent (for experiments involving humans or human tissue samples): include a statement confirming that informed consent was obtained from all participants and/or their legal guardian/s
+\end{enumerate}
+
+\bibliography{references}
 
 \end{document}
