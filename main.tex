@@ -5,7 +5,7 @@
 % ----------------------------------------------------------
 % additional latex packages 
 % ----------------------------------------------------------
-\usepackage{graphicx}
+
 \usepackage{multirow}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{amsthm}
@@ -19,13 +19,18 @@
 \usepackage{algorithmicx}
 \usepackage{algpseudocode}
 \usepackage{listings}
-
+\usepackage{subcaption}
+\usepackage[export]{adjustbox}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\graphicspath{{images/}}
 \raggedbottom
-% ----------------------------------------------------------https://www.overleaf.com/project/641981d1f29991b6c00119e5
+
+% ----------------------------------------------------------
 % Inicio do Artigo ChatGPT e Design Patterns
 % ----------------------------------------------------------
 \begin{document}
-\title{Can ChatGPT suggest design patterns? A study based on the analysis of exam questions.}
+\title{Can ChatGPT suggest GoF design patterns? A study based on the analysis of exam questions.}
 % ----------------------------------------------------------
 % Nome autores
 % ----------------------------------------------------------
@@ -42,106 +47,221 @@
 
 \affil[2]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{10587}, \state{State}, \country{Country}}}
 
-\affil[3]{\orgdiv{Computação Aplicada}, \orgname{IPT - Instituto de Pesquisas Tecnologicias}, \orgaddress{\street{Av. Prof. Almeida Prado, 532}, \city{São Paulo}, \postcode{05508-901}, \state{SP}, \country{Brazil}}}
+\affil[3]{\orgdiv{Computação Aplicada}, \orgname{IPT - Instituto de Pesquisas Tecnologicias}, \orgaddress{\street{Av. Prof. Almeida Prado, 502}, \city{São Paulo}, \postcode{05508-901}, \state{SP}, \country{Brazil}}}
 
 % ----------------------------------------------------------
 % Abstract
 % ----------------------------------------------------------
-\abstract{This study aims to evaluate the effectiveness of ChatGPT in suggesting appropriate design patterns to solve software development problems. To achieve this, we collected 53 pre-existing questions from various Internet sources with scenario descriptions and asked ChatGPT to interpret and respond. We then assessed the quality of the ChatGPT responses against pre-existing question feedback to determine each suggestion's accuracy, relevance, and comprehensiveness. The results of this study provide insight into the potential of AI-assisted tools for software development and the role they can play in improving software quality.}
+\abstract{This study aims to evaluate the effectiveness of ChatGPT in suggesting appropriate design patterns to solve software development problems. To achieve this, we collected 50 preexisting questions from various Internet sources with scenario descriptions and asked ChatGPT to interpret and respond. We then assessed the quality of the ChatGPT responses against pre-existing question feedback to determine each suggestion's accuracy, relevance, and comprehensiveness. The results of this study provide insight into the potential of AI-assisted tools for software development and the role they can play in improving software quality.}
 
 \keywords{ChatGPT, Design Patterns, Artificial Intelligence, I-assisted}
 
 \maketitle
-
+% ---------------------------------------------------------------------------
+% Inicio da introdução
+% ---------------------------------------------------------------------------
 \section{Introduction}\label{sec1}
-The use of design patterns\cite{bib1,bib3} in software development is prevalent in software engineering. It brings several advantages, including code reuse, better code organization, ease of maintenance, better scalability, and software quality\cite{bib4}. However, becoming proficient in understanding and applying these patterns can take time and effort\cite{bib2}, requiring a high degree of abstraction and practice in object-oriented programming. Educational institutions use various learning techniques\cite{bib5} to engage students in real-world problems to recognize and interpret these patterns.
+The use of \cite{bib1,bib3,bib6} design patterns in software development is a practice that brings several advantages, including code reuse, better code organization, ease of maintenance, better scalability, and software quality\cite{ bib4,bib8}. However, becoming proficient in understanding and applying these patterns can take time and effort\cite{bib2}, requiring a high degree of abstraction and practice in object-oriented programming. Educational institutions use various learning techniques\cite{bib5,bib7} to engage students with real-world problems in recognizing and interpreting these patterns.
 
 ChatGPT is an extensive language model trained on a large text dataset that includes much information about software development, including design patterns. As a result, these AI-assisted tools can suggest design patterns based on a specific set of requirements or a specific problem. To indicate a design pattern, he would need to be given information about the specific problem that needs to be addressed and any relevant constraints or requirements. This can be done through a conversation or by providing a written problem description. Once this artificial intelligence clearly understands the problem, it can use its knowledge of software design patterns to suggest the most appropriate design pattern. This would involve analyzing the situation, identifying essential requirements, and considering the pros and cons of each design pattern.
 
-This study aims to evaluate the effectiveness of ChatGPT responses to assist developers in choosing a design pattern to solve a design scenario for this purpose; We collected 53 pre-existing questions from various Internet sources with scenario descriptions and asked them to interpret and respond.
+This study aims to evaluate the effectiveness of ChatGPT responses to assist developers in choosing a design pattern to solve a design scenario for this purpose; We collected questions obtained from educational institutions and public tenders, whose statements had context and a problem to be solved so that ChatGPT could interpret and answer them. The results from the 50 questions asked to the ChatGPT were 96\% correct, and 4\% answered incorrectly.
 
-% Que aprender quando aplicar padrões não é simples//ok
-% ChatGPT//ok
-% Possiblidade de AI ajudar
-	.	
-% o que a gente fez//ok
-	
-% resumo dos resultados
-	
-% descreve seções
+The rest of this paper is organized as follows:
+\textit{Introduction}: This section introduces the topic of the study, which is evaluating the effectiveness of ChatGPT in suggesting appropriate design patterns to solve software development problems. It provides background information on design patterns and AI-assisted tools and outlines the purpose and method of the study.\textit{Background}: This section discusses AI-assisted tools for implementing design patterns and AI-based knowledge extraction for automatic design pattern recognition. It also discusses the challenges of learning and applying design patterns in software development.\textit{Methodology}: This section explains the methodology used in the study, including the selection of questions, the process of collecting responses from ChatGPT, and the evaluation criteria used to assess the accuracy, relevance, and comprehensiveness of the returns. \textit{Results}: This section presents the study's results, including the accuracy, relevance, and comprehensiveness of ChatGPT's feedback to the selected questions. Discussion: This section discusses the implications of the study's results and the potential of AI-assisted tools like ChatGPT in improving software development practices. It also highlights some limitations of the study and suggests directions for future research.\textit{Conclusion}: This section summarizes the study's key findings and concludes with some final remarks on the role of AI-assisted tools in software development.
+% ---------------------------------------------------------------------------
+% Fim da Introdução
+% ---------------------------------------------------------------------------
 
-
-
+% ---------------------------------------------------------------------------
+% Inicio da Seção da BackGround
+% ---------------------------------------------------------------------------
 \section{Background}\label{sec2}
 
-\subsection{AI-Assisted Tools for Implementing Design Patterns}\label{sec2subsec1}
+\subsection{AI-Assisted Tools for Implementing Design Patterns}\label{sec2sub1}
 
-\subsection{AI-Based knowledge extraction for automatic design proposals using design-related patterns}\label{sec2subsec2}
+\subsection{AI-Based knowledge extraction for automatic design proposals using design-related patterns}\label{sec2sub2}
 
 \subsection{Towards Predicting Architectural Design Patterns: A Machine Learning Approach
 }\label{sec2subsec3} 
+% ---------------------------------------------------------------------------
+% Inicio da Seção da BackGround
+% ---------------------------------------------------------------------------
+
+% ---------------------------------------------------------------------------
+% Inicio da Seção Teaching Design Patterns
+% ---------------------------------------------------------------------------
 
 \section{Teaching Design Patterns}\label{sec3}
 
-\subsection{A problem-based approach to teaching design patterns}\label{sec3subsec1}
-\subsection{Study Design Patterns}\label{sec3subsec2}
+\subsection{Study Design Patterns}\label{sec3sub2}
 
+\subsection{A problem-based approach to teaching design patterns}\label{sec3sub3}
+
+% ---------------------------------------------------------------------------
+% Fim da Seção Teaching Design Patterns
+% ---------------------------------------------------------------------------
+
+% ---------------------------------------------------------------------------
+% Inicio da Seção Research Questions
+% ---------------------------------------------------------------------------
 \section{Research Questions}\label{sec4}
-\textbf{How effective is ChatGPT in suggesting appropriate design patterns to solve software development problems?}\newline
+\textbf{How effective is ChatGPT in suggesting appropriate design patterns to solve software development problems?}
 
- This research question will guide the study to investigate the accuracy, relevance, and comprehensiveness of ChatGPT responses by suggesting design patterns for the 53 pre-existing questions asked. The results of this study will contribute to our understanding of the potential of AI-assisted tools in software development and their role in improving software quality.
+This research question will guide the study to investigate the accuracy, relevance, and comprehensiveness of ChatGPT responses by suggesting design patterns for the 50 preexisting questions asked. The results of this study will contribute to our understanding of the potential of AI-assisted tools in software development and their role in improving software quality.
+
+% ---------------------------------------------------------------------------
+% Fim da Seção Research Questions
+% ---------------------------------------------------------------------------
+
+
+% ---------------------------------------------------------------------------
+% Inicio da Seção Research Methodology
+% ---------------------------------------------------------------------------
 
 \section{Research Methodology}\label{sec5}
-In the initial phase of our research, we endeavored to identify the type of design pattern best suited for our study. We chose the catalog of 23 design patterns from the famous book “Gang of Four” (GOF); we selected the questions that make up the standards from this catalog that are widely disseminated design patterns in the job market and extensively taught in higher education or open courses. 
+% passos do estudo
+In the initial phase of our research, we endeavored to identify the type of design pattern best suited for our study. We chose the catalog of 23 design patterns from the famous book “Gang of Four” (GOF); we selected the questions that make up the standards from this catalog that are widely disseminated design patterns in the job market and extensively taught in higher education or open courses.
 
-In the next phase, we looked for pre-existing questions prepared by higher education professors or public tenders.
+%selecionar questões (fala do nosso critério)
+In the next phase, we looked for preexisting questions prepared by higher education professors or public tenders.
 We then filtered out the most pertinent questions that provided a clear context or explanation of an issue without directly referencing the pattern. 
 
-In the final phase, we entered 53 questions into ChatGPT to determine the most appropriate design pattern for each question. We then validated whether the recommended pattern was correct or incorrect. Our dataset comprised 20 questions in English and 33 questions in Portuguese.
+In the final phase, we entered 50 questions into ChatGPT to determine the most appropriate design pattern for each question. We then validated whether the recommended pattern was correct or incorrect. Our dataset comprised 20 questions in English and 33 questions in Portuguese.
 
-\subsection{What is the GOF design pattern?}\label{sec5subsec1}
-The GoF design pattern refers to the patterns presented in the book "Design Patterns: Elements of Reusable Object-Oriented Software" written by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides, also known as the "Gang of Four" (GOF). The book describes a set of common design patterns for solving recurring problems in object-oriented software development.
-% -Categorizar os padroes
-% -Explicar cada padrão
+\subsection{Questions Data Set}\label{sec5sub1}
+\subsubsection{Questions versus Hits and Misses}{}\label{sec5sub1subsub1}
+Of the 50 preexisting questions asked to ChatGPT, 17 were in English and 33 in Portuguese, 47 were answered correctly, 16 in English, and 31 in Portuguese. However, for the incorrect questions, we had 1 question in English and 2 in Portuguese, totaling three incorrect questions, as in Table~\ref{tab1}. Therefore, ChatGPT answered 94\% of the questions correctly.
 
-\subsection{Questions Dataset}\label{sec5subsec2}
-    % visão geral das questões: por categoria de padrão, quantidade, por padrão, por fonte, lingua, etc...
+% Inicio da Tabela ---------------------------
+\begin{table}[ht]
+\caption{Answers ChatGPT}\label{tab1}
+\begin{tabular}{@{}llllllll@{}}
+\toprule
+Answers & English & Portuguese \\
+\midrule
+Correct    & 16 & 31 \\
+Incorrect   & 1 & 2\\
+\botrule
+\end{tabular}
+\footnotetext{Correct and incorrect questions answered by ChatGPT organized by language.}
+\end{table}
+% Fim da Tabela ---------------------------
+
+\subsubsection{Questions versus Pattern Types}{}\label{sec5sub1subsub2}
+GOF (Gang of Four) design patterns are categorized into three main categories,
+known as pattern types; as explained in section 3.1, in Figure ~\ref{fig1}, we can verify the categories of design patterns through the collection of questions inserted in ChatGPT. We have 17 questions with the type of behavioral pattern, 16 structural, 14 creational, and some questions that mix the patterns, such as 1 question with creational and structural patterns, 1 question with creational, structural, and behavioral, and 1 with structural and behavioral.
+% Inicio Figura1 ---------------------------
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth,center]{design-pattern-types.png}
+\caption{Number of questions by type of design pattern and mix between them.}\label{fig1}
+\end{figure}
+% Fim Figura1 ---------------------------
+
+\subsubsection{Questions versus Patterns}{}\label{sec5sub1subsub3}
+According to Figure~\ref{fig2}, of the total of 50 Design Pattern questions selected, three are from Abstract Factory, four Adapter, five Bridge, one Bridge or Strategy, one Builder, one Builder and Adapter, one Builder, one Decorator, one Flyweight, and Memento, one Chain of Responsibility, three Command, one Command or Memento, four Composite, three Facade, three Factory Method, three Observer, four Observer and Template Method, one Prototype, two Proxy, two Singleton, one Singleton and Abstract Factory, three State, five Strategy and three Factory Method.
 
 
-\subsection{Questions Analysis}\label{sec5subsec3}
-We used a mixed methods approach to analyze the questions collected in this study. First, we evaluate ChatGPT responses against known appropriate design patterns for each question. We assess each suggestion's accuracy, relevance, and completeness to determine the ChatGPT response's quality. We then analyzed the data statistically to identify significant differences between the ChatGPT suggestions and known design patterns.
+% Inicio Figura2 ---------------------------
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\textwidth,center]{number-questions-by-design-no-legend}
+\caption{This is a widefig. This is an example of long caption this is an example of long caption  this is an example of long caption this is an example of long caption}\label{fig2}
+\end{figure}
+% Fim Figura2 ---------------------------
 
-\subsection{Validity and Reliability}\label{sec5subsec4}
-To ensure the validity and reliability of the study, we used a rigorous data analysis process and compared ChatGPT suggestions against known and appropriate design standards for each question.
+\subsubsection{Question Extraction Sources}{}\label{sec5sub1subsub4}
+According to Table~\ref{tab2}, of the total of fifty Design Pattern questions selected, we have nine questions from the United States of America, five from Portugal, four from Italy, thirty-two from Brazil, and a total of twenty-nine institutions that formulated the questions.
 
-% passos do estudo
-% GoF
-%selecionar questões (fala do nosso critério)
+\begin{table}[ht]
+    \caption{Question Extraction Sources}\label{tab2}%
+\begin{tabular}{@{}llllllll@{}}
+\toprule
+        \textbf{Country} & \textbf{Institute} & \textbf{Questions} \\ \hline
+\midrule
+        USA & University Northern Arizona & 9 \\ \hline
+        Portugal & Faculdade De Engenharia Da Universidade Do Porto & 5 \\ \hline
+        Italy & Free University Of Bozen-Bolzano & 4 \\ \hline
+        Brazil & IBGE - Instituto Brasileiro de Geografia e Estatística & 2 \\ \hline
+        Brazil & Instituto Brasileiro De Geografia E Estatística & 2 \\ \hline
+        Brazil & Tribunal De Contas Do Estado De Alagoas & 1 \\ \hline
+        Brazil & Caixa Economica Federal & 1 \\ \hline
+        Brazil & Fundação Vunesp & 1 \\ \hline
+        Brazil & Companhia Do Metropolitano De São Paulo & 1 \\ \hline
+        Brazil & Tribunal De Contas Do Estado De Rondônia & 1 \\ \hline
+        Brazil & Tribunal Regional Federal Da 4ª Região & 1 \\ \hline
+        Brazil & Universidade Federal Do Ceará & 1 \\ \hline
+        Brazil & Defensoria Pública Do Estado Do Rio De Janeiro & 1 \\ \hline
+        Brazil & Saneamento De Goiás S.A. & 1 \\ \hline
+        Brazil & Defensoria Pública Do Rio Grande Do Sul  & 1 \\ \hline
+        Brazil & Agência Reguladora De Serviços Públicos De São Paulo  & 1 \\ \hline
+        Brazil & Tribunal Regional Eleitoral de São Paulo & 1 \\ \hline
+        Brazil & Companhia Docas Do Estado Da Bahia & 1 \\ \hline
+        Brazil & Companhia Catarinense De Água E Saneamento & 1 \\ \hline
+        Brazil & Tribunal Regional Eleitoral Da Paraíba & 1 \\ \hline
+        Brazil & Defensoria Pública De São Paulo & 1 \\ \hline
+        Brazil & Ministério Público Do Estado Da Paraíba & 1 \\ \hline
+        Brazil & Universidade Do Estado Do Amapá & 1 \\ \hline
+        Brazil & Defensoria Pública Do Estado Do Rio De Janeiro & 1 \\ \hline
+        Brazil & Companhia Hidro Elétrica Do São Francisco & 1\\ \hline
+        Brazil & Ministério Público Do Estado De Alagoas & 1 \\ \hline
+        Brazil & Petrobras S.A & 5 \\ \hline
+        Brazil & Banco Nacional De Desenvolvimento Econômico E Social & 1 \\ \hline
+        Brazil & Universidade Federal De Alagoas & 1 \\ \hline
+      
+    \end{tabular}
+    \footnotetext{Fifty pre-existing questions organized by country and institution}
+\end{table}
+% ---------------------------------------------------------------------------
+% Fim da Seção Research Methodology
+% ---------------------------------------------------------------------------
+
+% ---------------------------------------------------------------------------
+% Inicio da Seção Questions Analysis
+% ---------------------------------------------------------------------------
+\subsection{Questions Analysis}\label{sec5sub3}
 % avaliou a resposta: métricas - taxa de acerto, avaliação qualitativa do texto, de quais padrões ele errou e acertou
 
-\subsection{Participants}\label{sec5subsec5}
-No human participants were involved in this study, as we used pre-existing questions from internet sources.
 
-\subsection{Ethics}\label{sec5subsec6}
-This study did not involve human subjects, so no ethical approval was required. We ensured that the pre-existing questions used in the study were publicly available and did not contain confidential or sensitive information.
-
+% ---------------------------------------------------------------------------
+% Inicio da Seção Results
+% ---------------------------------------------------------------------------
 
 \section{Results}\label{sec6}
 
-	% 4.1 seco sem interpretação
+	% 6.1 seco sem interpretação
 	
-	% 4.2 quantidade de acerto
+	% 6.2 quantidade de acerto
 	
-	% 4.3 para os erros, os detalhes da questão: por padrão, por idioma etc...
+	% 6.3 para os erros, os detalhes da questão: por padrão, por idioma etc...
 	
-	% 4.4 análise do tamanho das respostas (média, min e max nr de chars)
+	% 6.4 análise do tamanho das respostas (média, min e max nr de chars)
 
+% ---------------------------------------------------------------------------
+% Fim da Seção Results
+% ---------------------------------------------------------------------------
+
+
+% ---------------------------------------------------------------------------
+% Inicio da Seção Discussion
+% ---------------------------------------------------------------------------
 \section{Discussion}\label{sec7}
  \begin{enumerate}
      \item \textbf{How is the success rate of ChatGPT in the design patterns exercises?}
      \item \textbf{How does the answer of ChatGPT help in the pattern implementation?}
      \item \textbf{In questions where the wrong pattern is pointed, does ChatGPT answer mislead the developers?}
  \end{enumerate}
+
+ % ---------------------------------------------------------------------------
+% Fim da Seção Discussion
+% ---------------------------------------------------------------------------
+
+
+% ---------------------------------------------------------------------------
+% Fim da Seção Discussion
+% ---------------------------------------------------------------------------
+
  
 \section{Conclusion}\label{sec8}
     % 	Resumo
@@ -150,6 +270,10 @@ This study did not involve human subjects, so no ethical approval was required. 
     % 	Outros padrões
     % 	Problemas da Industria
 
+% ---------------------------------------------------------------------------
+% Fim da Seção Discussion
+% ---------------------------------------------------------------------------
+\newpage
 \bibliography{references}
 
 \end{document}
