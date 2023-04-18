@@ -1,74 +1,62 @@
 % ----------------------------------------------------------
 % Style for submissions to Nature Portfolio journals
 % ----------------------------------------------------------
-\documentclass[pdflatex,sn-nature]{sn-jnl}
+% \documentclass[pdflatex,sn-nature]{sn-jnl}
+\documentclass{svproc}
 % ----------------------------------------------------------
 % additional latex packages 
 % ----------------------------------------------------------
-
-\usepackage{multirow}
-\usepackage{amsmath,amssymb,amsfonts}
-\usepackage{amsthm}
-\usepackage{mathrsfs}
-\usepackage{xcolor}
-\usepackage[title]{appendix}
-\usepackage{textcomp}
-\usepackage{manyfoot}
-\usepackage{booktabs}
-\usepackage{algorithm}
-\usepackage{algorithmicx}
-\usepackage{algpseudocode}
-\usepackage{listings}
-\usepackage[export]{adjustbox}
-\usepackage{wrapfig}
+\usepackage{makeidx} 
+\makeindex
+\usepackage{url}
+\def\UrlFont{\rmfamily}
 \usepackage{graphicx}
-\usepackage{rotating}
-\graphicspath{{images/}}
-\raggedbottom
 
 % ----------------------------------------------------------
 % Inicio do Artigo ChatGPT e Design Patterns
 % ----------------------------------------------------------
 \begin{document}
+\mainmatter 
 \title{Can ChatGPT suggest patterns? An exploratory study about answers given by AI-assisted tools to design problems.}
+\titlerunning{ChatGPT suggest patterns}
 % ----------------------------------------------------------
 % Nome autores
 % ----------------------------------------------------------
-\author[1]{\fnm{João} \spfx{José} \sur{Maranhão}  \sfx{Junior}}\email{joao.junior@ensino.ipt.br}
-
-\author[2]{\fnm{Filipe}  \sur{Correia}} \email{filipe.correia@fe.up.pt}
-
-\author[3]{\fnm{Eduardo} \spfx{Martins} \sur{Guerra}}\email{eduardo.guerra@unibz.it}
-
+\author{João José Maranhão Junior\inst{1} \and Filipe Correia\inst{2}
+\and Eduardo Martins Guerra\inst{3}}
+\authorrunning{João José Maranhão Junior et al.}
 % ----------------------------------------------------------
 % Filiação
 % ----------------------------------------------------------
-\affil[1]{\orgdiv{Applied Computing}, \orgname{Instituto de Pesquisas Tecnológicas}, \city{São Paulo}}
+\institute{Instituto de Pesquisas Tecnológicas, São Paulo,
+\email{joao.junior@ensino.ipt.br},
+\and
+University of Porto, Porto, \email{filipe.correia@fe.up.pt}
+\and 
+Free University of Bozen-Bolzano, Bolzano, \email{eduardo.guerra@unibz.it}
+}
 
-\affil[2]{\orgdiv{Faculty of Engineering}, \orgname{University of Porto},  \city{Porto}}
-
-\affil[3]{\orgname{Free University of Bozen-Bolzano}, \city{Bolzano}}
-
+\maketitle 
 % ----------------------------------------------------------
 % Abstract
 % ----------------------------------------------------------
-\abstract{Recently, general-purpose AI-assisted tools, such as ChatGPT, gained much attention from the media and the general public. That raised questions about which kind of tasks the usage of such a tool can be applied. For agile software development, having a good code design is essential to keep it ready to change. In this context, identifying which design pattern can be appropriate for a given scenario can be considered an advanced skill that requires a high degree of abstraction and a good knowledge of object orientation. So, the goal of this paper is to perform an exploratory study investigating the effectiveness of an AI-assisted tool in assisting developers in choosing a design pattern to solve design scenarios. To reach this goal, we gathered 56 existing questions used by teachers and public tenders that provide a concrete context and ask which design pattern would be suitable. These questions were submitted to ChatGPT, and the answers were analyzed. As a result, 93\% of the questions were answered correctly with a good level of detail, demonstrating the potential of such a tool as a valuable resource to help developers to apply design patterns and make design decisions.}
-
+\begin{abstract}
+Recently, general-purpose AI-assisted tools, such as ChatGPT, gained much attention from the media and the general public. That raised questions about which kind of tasks the usage of such a tool can be applied. For agile software development, having a good code design is essential to keep it ready to change. In this context, identifying which design pattern can be appropriate for a given scenario can be considered an advanced skill that requires a high degree of abstraction and a good knowledge of object orientation. So, the goal of this paper is to perform an exploratory study investigating the effectiveness of an AI-assisted tool in assisting developers in choosing a design pattern to solve design scenarios. To reach this goal, we gathered 56 existing questions used by teachers and public tenders that provide a concrete context and ask which design pattern would be suitable. These questions were submitted to ChatGPT, and the answers were analyzed. As a result, 93\% of the questions were answered correctly with a good level of detail, demonstrating the potential of such a tool as a valuable resource to help developers to apply design patterns and make design decisions.
 \keywords{ChatGPT, Design Patterns, Artificial Intelligence, AI-assisted tools}
+\end{abstract}
 
-\maketitle
 % ---------------------------------------------------------------------------
 % Inicio da introdução
 % ---------------------------------------------------------------------------
 \section{Introduction}\label{sec1}
 
-The use of design patterns\cite{bib1,bib3,bib6} in software development is a practice that brings several advantages, including code reuse, better code organization, ease of maintenance, better scalability, and software quality\cite{ bib4, bib8}. In the context of agile methods, these characteristics are essential to keep the code ready to change, enabling adjustments in requirements in small iterations. However, becoming proficient in understanding and applying these patterns can take time and effort\cite{bib2}, requiring a high degree of abstraction and practice in object-oriented programming. Educational institutions use various learning techniques\cite{bib5, bib7} to engage students with real-world problems in recognizing and interpreting these patterns.
+The use of design patterns\cite{bib1,bib3,bib6} in software development is a practice that brings several advantages, including code reuse, better code organization, ease of maintenance, better scalability, and software quality\cite{bib4,bib8}. In the context of agile methods, these characteristics are essential to keep the code ready to change, enabling adjustments in requirements in small iterations. However, becoming proficient in understanding and applying these patterns can take time and effort\cite{bib2}, requiring a high degree of abstraction and practice in object-oriented programming. Educational institutions use various learning techniques\cite{bib5,bib7} to engage students with real-world problems in recognizing and interpreting these patterns.
 
-ChatGPT is an AI-assisted tool capable of answering questions in a conversational way. Recently, this kind of tool has received a lot of attention from the media and the general public, raising questions about the potential of its application in several fields, such as public health \cite{biswas2023role} and academia \cite{lund2023chatting}. Some recent works suggest its use for software engineering applications, such as solving programming bugs \cite{surameery2023use} and improving other kinds of activities, like requirements engineering and code quality \cite{white2023chatgpt}.
+ChatGPT is an AI-assisted tool capable of answering questions in a conversational way. Recently, this kind of tool has received a lot of attention from the media and the general public, raising questions about the potential of its application in several fields, such as public health \cite{biswas2023role} and academia \cite{lund2023chatting}. Some recent works suggest its use for software engineering applications, such as solving programming bugs \cite{surameery2023use} and improving other kinds of activities, like requirements engineering and code quality \cite{white2023chatgpt}. GitHub Co-Pilot\footnote{\url{https://github-co-pilot.en.softonic.com/}} is an example of another tool in this direction.
 
 The goal of this paper is to investigate if an AI-assisted tool can help developers to make design decisions, like suggesting appropriate design patterns to apply in a given scenario. To reach that goal, we performed an exploratory study considering 56 exercises and exam questions obtained from educational institutions and public tenders, which present a concrete context and ask which pattern should be applied. We used ChatGPT for this study, and we evaluated how many answers it answered correctly based on the question's official answer and what elements that can help in the pattern implementation is present in the answers. For wrong answers, we also assessed if they could mislead the developer to the wrong path.
 
-As a result, the AI-assisted tool was able to answer 93\% of the questions correctly with information that mentions specific details of the scenario, providing guidance to the pattern implementation, including the classes and interfaces that should be created. \textbf{Related to the wrong answers...} Based on that, we consider the results of this initial assessment promising, pointing to the potential of such tools to assist in software design decisions.
+As a result, the AI-assisted tool answered 93\% of the questions correctly, always referring to specific details of the scenario and, in several cases providing guidance to the pattern implementation, including the classes and interfaces that should be created. In the few cases where the tool provided wrong answers, we found that they could be misleading and guide the developers in the wrong direction. Based on that, we consider the results of this initial assessment promising, pointing to the potential of such tools to assist in software design decisions. However, we also believe an experienced professional is still needed to evaluate the suitability of the suggested solution.
 
 % to do: Fazer sumario dos capitulos 
 
@@ -110,7 +98,7 @@ The questions have an average number of 601 chars with a standard deviation of 3
 % Inicio Figura1 ---------------------------
 \begin{figure}[h]
 \centering
-\includegraphics[width=1.0\textwidth,center]{images/number-questions}
+\includegraphics[width=1.0\textwidth]{images/number-questions.png}
 \caption{\centering Number of questions collected by design patterns.}\label{fig1}
 \end{figure}
 % Fim Figura1 ---------------------------
@@ -126,9 +114,7 @@ The questions were sent to ChatGPT (version 3.5) in the period between 03/03/202
 
 The answers have an average number of 1033 chars with a standard deviation of 657, varying from a minimum of 247 to a maximum of 3127. Considering the number of words, the average is 155, with a standard deviation of 89, varying from a minimum of 37 to a maximum of 390 words. We used the Pearson correlation coefficient to evaluate if the number of words on the question would be related to the number of words in the answer. The value of 0,09 obtained showed that there was no significant relation. 
 
-\subsection{Qualitative analysis}\label{sec4sub1}
-
-A qualitative analysis evaluated the six criteria proposed in section \ref{sec2}. The following are the results:
+\textbf{Information Present in the Answers.} A qualitative analysis evaluated the six criteria proposed in section \ref{sec2}. The following are the results:
 
 \begin{itemize}
     \item (C1) 100\% of the correct answers (52/52) mention the described context (instead of just giving a generic answer)
@@ -139,15 +125,13 @@ A qualitative analysis evaluated the six criteria proposed in section \ref{sec2}
     \item (C6) None of the correct answers (0/52) describe any trade-off or negative consequence in using the proposed pattern.
 \end{itemize}
 
-\subsection{Wrong answer}\label{sec4sub2}
-
-This section presents an analysis of the questions that received a wrong answer (the ID will be used to refer to that question later):
+\textbf{Assessment of Wrong answers.} This section presents an analysis of the questions that received a wrong answer (the ID will be used to refer to that question later):
 
 \begin{itemize}
     \item (WA1) The question presented a problem in creating a solution for reports needing two dimensions: the report type and the report format. While the correct answer was using the Visitor pattern, the tool suggested Strategy. In the answer, one of the dimensions of the question was ignored, and the proposed solution focused only on the report format.
     \item (WA2) The question asked how the representation of more complex devices could be dynamically created by reusing the behavior of more simple devices that are part of it. While the correct answer was Composite, the given answer was Factory Method. In this case, the solution described does not help in solving the design problem presented.
-    \item (WA3) The question presented the context of exchanging messages in different ways between different platforms and the solution using an object that encapsulates the way a set of objects interact, enabling communication between platforms. While the correct answer was Adapter, the answer given was Bridge. In this case, the described solution does not help in solving the problem of exchanging messages in different formats between the platforms of cell phone operating systems.
-    \item (WA4)  The question presented in the context of an abstract class “DB” is responsible for transparently creating objects corresponding to different types of databases. Concrete subclasses are responsible for instantiating specific connections and queries for each type of database. The correct answer was Abstract Factory, and the given answer was Factory Method. It doesn't help to solve the problem because it was necessary in the answer to create a family of objects for each type of database.
+    \item (WA3) The question presented the context of exchanging messages between different cell phone operating systems platforms, handling distinct message formats transparently. While the correct answer was Adapter, the answer given was Bridge. In this case, even if the patterns share some structural similarities, the described solution does not help solve the problem.
+    \item (WA4)  The question presented an abstract class that is responsible for transparently creating objects corresponding to different types of databases. Concrete subclasses are responsible for instantiating specific connections and queries for each type of database. The correct answer was Abstract Factory, and the given answer was Factory Method. Even if both are creational patterns, the given answer does not help to solve the problem because it was necessary to create a family of objects for each type of database.
 \end{itemize}
 
 % ---------------------------------------------------------------------------
@@ -157,30 +141,33 @@ This section presents an analysis of the questions that received a wrong answer 
 
 This section performs a discussion based on the obtained results, answering each research question. We also point out some limitations of the present study.
 
-\subsection{\texorpdfstring{$RQ_1$} - How is the success rate of the AI-assisted tool in suggesting design patterns?}\label{sec5sub1}
+\subsection{$RQ_1$ - How is the success rate of the AI-assisted tool in suggesting design patterns?}\label{sec5sub1}
 
 The study showed an efficient result with 93\% correct answers in 56 questions. We highlight that the questions selected do not just ask for information about the patterns but present a specific and concrete scenario. To correctly answer the question by choosing the right pattern, the relevant factors that point to the usage of that specific pattern need to be identified in the context description. We also highlight that in the four questions that required a combination of patterns as an answer, the correct answer was provided by the AI-assisted tool. 
 
-ChatGPT performance can be considered good compared to other works that proposed more specific techniques for pattern suggestion \cite{HUSSAIN20191, HASHEMINEJAD2012408}. Consequently, it can be considered a suitable assisting tool for developers, which can describe the design scenario in their application and receive suggestions from the tool.
+ChatGPT performance can be considered good compared to other works that proposed more specific techniques for pattern suggestion \cite{HUSSAIN20191,HASHEMINEJAD2012408}. Consequently, it can be considered a suitable assisting tool for developers, which can describe the design scenario in their application and receive suggestions from the tool.
 
-\subsection{\texorpdfstring{$RQ_2$} - Do elements provided in the answer of the AI-assisted tool help in the pattern implementation?}\label{sec5sub2}
+\subsection{$RQ_2$ - Do elements provided in the answer of the AI-assisted tool help in the pattern implementation?}\label{sec5sub2}
 
 One positive point is that all responses mentioned the problem's context instead of just pointing to the pattern and providing a generic explanation. Around one-third of the answers also provided the name of the classes and interfaces that should be created in that case. Additionally, around one-quarter described the methods that should be created. Few answers, only 2, also provided UML diagrams with the structure that should be used.
 
-Most of the answers, but not all of them, brought a more theoretical explanation of the pattern, which can be useful in case the developer is not familiar with the pattern. A piece of important information that was not present in any of the answers is the trade-off in the usage of the suggested pattern since knowing possible bad consequences is important to make design decisions.
+Most of the answers, but not all, brought a more theoretical explanation of the pattern, which can be useful in case the developer is unfamiliar with the pattern. A piece of important information that was not present in any of the answers is the trade-off in the usage of the suggested pattern since knowing possible bad consequences is important to make design decisions.
 
-To avoid any kind of bias, the questions used in this study were not modified; however, we acknowledge that if we explicitly included in the question what information we wanted in the answer, the tool would include it. We did some exploratory experiments on some of the questions, asking to include some missing information, and in the new answers it was included correctly. That fact highlights the importance of how the questions are formulated, a new disciple called prompt engineering \cite{white2023chatgpt}.  
+To avoid any kind of bias, the questions used in this study were not modified; however, we acknowledge that if we explicitly included in the question what information we wanted in the answer, the tool would include it. We did some exploratory experiments on some of the questions, rephrasing them to ask explicitly for some missing information. As a result, the missing information was included correctly in the new answers. That fact highlights the importance of how the questions are formulated, a new disciple called prompt engineering \cite{white2023chatgpt}.  
 
-\subsection{\texorpdfstring{$RQ_3$} - In questions where the wrong pattern is pointed, does the AI-assisted tool answer mislead the developers?}\label{sec5sub3}
-For developers who know the patterns shallowly, ChatGPT can be confusing, as the answers proposed patterns that the motivations were other than those presented in the questions. Developers should exercise caution, critically evaluate the information provided by the tool, and cross-reference it with other sources or their knowledge to ensure accuracy. It is important to use personal judgment and verify the suggested patterns or solutions to avoid potential misinterpretation or incorrect implementation. Double-checking and validation with other sources and domain expertise is recommended to ensure correctness and appropriateness.
+\subsection{$RQ_3$ - In questions where the wrong pattern is pointed, does the AI-assisted tool answer mislead the developers?}\label{sec5sub3}
 
-\subsection{Limitations}\label{sec5sub4}
-\begin{itemize}
-    \item Limited number of questions: We collected questions from limited sources, which may not fully represent the diverse range of design problems encountered in real-world software development projects. The results may not be generalizable to all possible design scenarios.
-    \item Focus on GoF patterns: Our study focused only on "Gang of Four" (GoF) design patterns, which are well-known and widely used in the software development community. The performance of ChatGPT may differ for other design patterns or lesser-known patterns.
-    \item Potential inaccuracies in answers: As with any AI-assisted tool, ChatGPT may need to improve understanding of the context, interpret the questions accurately, or provide incomplete or incorrect answers. Developers should carefully evaluate the answers provided by ChatGPT before making design decisions.
-    \item Lack of real-world evaluation: Our study was conducted in a controlled setting using preexisting questions, and the performance of ChatGPT may differ in real-world software development scenarios where the context and requirements are more complex and dynamic.
-\end{itemize}
+We analyzed the four questions that received wrong answers to see if there was any inconsistency or ambiguity in the way they were formulated, and all authors agreed that they were clearly described and there was no doubt about the correct answer. For all the patterns that were the correct answer for these questions, there is at least another question with the same pattern answered correctly.
+
+In the case of WA1, the answer given by ChatGPT considered the described context partially, and the Strategy implementation that it described could be evolved to a Visitor. However, in WA2, WA3, and WA4, the answer leads to a way that does not solve the problem. The answers are assertive and well-described, and we believe can easily be accepted by a less experienced developer. Because of that, we advise that the answers given by an AI-assisted tool should be reviewed and understood instead of being blinded implemented. In other words, there should be a professional that should be responsible for its analysis and adoption.
+
+We also noticed that some of these questions used terms and expressions closely connected to other patterns. So, we suggest avoiding expressions like "family of algorithms" or "composite objects" that can drive the tool to a specific pattern.
+
+\subsection{Study Limitations}\label{sec5sub4}
+
+Our study focused only on "Gang of Four" (GoF) design patterns, which are well-known and widely used in the software development community. The performance of ChatGPT may differ for other design patterns that are newer and have less material available.
+
+Our study was conducted in a controlled setting using preexisting questions. These questions were formulated by teachers with software design knowledge, focused on scenarios suitable for applying one of the patterns, and included all the necessary information relevant to direct the answer to one of the patterns. Using such a tool in a real project would require skills to identify the relevant forces in the scenario and formulate them properly \cite{white2023chatgpt}. Asking which pattern should be used might force the choice of one pattern in cases where none of them is suitable.
 
 % ***************************************************************************
 % Fim da Seção Discussion
@@ -191,9 +178,10 @@ For developers who know the patterns shallowly, ChatGPT can be confusing, as the
 % ---------------------------------------------------------------------------
 \section{Conclusion}\label{sec6}
 
-This exploratory study investigated using an AI-assisted tool, ChatGPT, to suggest design patterns in software development. Based on the analysis of 56 questions, ChatGPT provided correct answers in 93\% of cases, mentioning specific details of the scenarios and providing guidance for pattern implementation. The tool's answers also included information on classes, interfaces, and methods to be created, aiding developers in the pattern implementation process.
+This paper described an exploratory study that investigated using an AI-assisted tool, in our case ChatGPT, to suggest design patterns using scenarios from existing exam questions. The tool answers have good accuracy, being correct in 93\% of the cases, and always mention specific details of the scenarios, which provide guidance for the pattern implementation. In some cases, the answers also included information on classes, interfaces, and methods to be created, which we believe could be improved even more using prompt engineering techniques \cite{white2023chatgpt}. Another finding is that wrong answers, even if given in only a few cases, could be misleading and lead the developers in a direction that does not help the design problem described. In conclusion, our study suggests that AI-assisted tools can be a valuable resource for developers in understanding and applying design patterns; however, they should not replace human expertise, and the solutions should be reviewed before their adoption.
 
-AI-assisted tools should not replace human expertise but rather serve as valuable aids in decision-making. However, our study suggests that AI-assisted tools can be a valuable resource for developers in understanding and applying design patterns, leading to improved software quality, code reusability, and maintainability. While the results are good, further research and evaluation are needed to assess the tool's accuracy and effectiveness in different scenarios and complexity levels.
+Future studies in this direction can focus on a different set of patterns that have less documentation and material available on the Internet. The result of this new study can be compared with the one made with the GoF patterns to assess if the AI-assisted tool can have a similar performance. Other studies can be conducted in more realistic scenarios using the description of design challenges faced by development teams and comparing the solutions suggested by an AI-assisted tool with the ones adopted in the projects.
+
 % ***************************************************************************
 % Fim da Seção Future works
 % ***************************************************************************
@@ -201,7 +189,10 @@ AI-assisted tools should not replace human expertise but rather serve as valuabl
 % ---------------------------------------------------------------------------
 % Inicio da Seção Bibliografia
 % ---------------------------------------------------------------------------
+
+\bibliographystyle{unsrt}
 \bibliography{references}
+
 % ***************************************************************************
 % Fim da Seção Bibliografia
 % ***************************************************************************
