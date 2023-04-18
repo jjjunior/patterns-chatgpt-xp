@@ -1,7 +1,6 @@
 % ----------------------------------------------------------
 % Style for submissions to Nature Portfolio journals
 % ----------------------------------------------------------
-% \documentclass[pdflatex,sn-nature]{sn-jnl}
 \documentclass{svproc}
 % ----------------------------------------------------------
 % additional latex packages 
@@ -57,9 +56,6 @@ ChatGPT is an AI-assisted tool capable of answering questions in a conversationa
 The goal of this paper is to investigate if an AI-assisted tool can help developers to make design decisions, like suggesting appropriate design patterns to apply in a given scenario. To reach that goal, we performed an exploratory study considering 56 exercises and exam questions obtained from educational institutions and public tenders, which present a concrete context and ask which pattern should be applied. We used ChatGPT for this study, and we evaluated how many answers it answered correctly based on the question's official answer and what elements that can help in the pattern implementation is present in the answers. For wrong answers, we also assessed if they could mislead the developer to the wrong path.
 
 As a result, the AI-assisted tool answered 93\% of the questions correctly, always referring to specific details of the scenario and, in several cases providing guidance to the pattern implementation, including the classes and interfaces that should be created. In the few cases where the tool provided wrong answers, we found that they could be misleading and guide the developers in the wrong direction. Based on that, we consider the results of this initial assessment promising, pointing to the potential of such tools to assist in software design decisions. However, we also believe an experienced professional is still needed to evaluate the suitability of the suggested solution.
-
-% to do: Fazer sumario dos capitulos 
-
 % ***************************************************************************
 % Fim da Introdução
 % ***************************************************************************
@@ -68,8 +64,7 @@ As a result, the AI-assisted tool answered 93\% of the questions correctly, alwa
 % Inicio da Seção Research Methodology
 % ---------------------------------------------------------------------------
 
-\section{Research Design}
-\label{sec2}
+\section{Research Design}\label{sec2}
 
 Based on the goal of investigating if an AI-assisted tool can help developers in choosing the appropriate design pattern to apply in a given scenario, we formulated three more specific research questions:
 
@@ -106,9 +101,7 @@ The questions have an average number of 601 chars with a standard deviation of 3
 % ---------------------------------------------------------------------------
 % Inicio da Seção Results
 % ---------------------------------------------------------------------------
-
 \section{Results}\label{sec4}
-
 
 The questions were sent to ChatGPT (version 3.5) in the period between 03/03/2023 and 16/04/2023. Based on the results, ChatGPT was generally effective in answering pre-existing design pattern questions, with an overall accuracy rate of 93\%. Most of the questions were in Portuguese, with 31 of the 34 answered correctly, while 21 of the 22 in English were answered correctly. 
 
@@ -183,7 +176,7 @@ This paper described an exploratory study that investigated using an AI-assisted
 Future studies in this direction can focus on a different set of patterns that have less documentation and material available on the Internet. The result of this new study can be compared with the one made with the GoF patterns to assess if the AI-assisted tool can have a similar performance. Other studies can be conducted in more realistic scenarios using the description of design challenges faced by development teams and comparing the solutions suggested by an AI-assisted tool with the ones adopted in the projects.
 
 % ***************************************************************************
-% Fim da Seção Future works
+% Fim da Seção Conclusion
 % ***************************************************************************
 
 % ---------------------------------------------------------------------------
